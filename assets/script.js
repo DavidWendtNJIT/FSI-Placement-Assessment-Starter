@@ -1,27 +1,70 @@
-// HINT: You can delete this console.log after you no longer need it!
-console.log('JavaScript code has loaded!')
-// First, tell us your name
-let yourName = "Jane Doe" // HINT: Replace this with your own name!
+let yourName = "David Wendt" 
 
 // We'll use these variables to track the counts of each cookie type
-let gb = 0 // Gingerbread
-let cc = 0 // Chocolate Chip
-let sugar = 0 // Sugar Sprinkle
+let gb = 0 
+let cc = 0 
+let sugar = 0 
 
-// selecting the element with an id of credit
+// Transferring IDs into ID's for JS
 const credit = document.querySelector('#credit')
-// selecting the element with an id of add-gb
+
 const gbPlusBtn = document.querySelector('#add-gb')
+const gbMinusBtn = document.querySelector('#minus-gb')
+const gbTotal = document.querySelector('#qty-gb')
 
-// Code to update name display
-credit.textContent = `Created by ${yourName}`
+const ccPlusBtn = document.querySelector('#add-cc')
+const ccMinusBtn = document.querySelector('#minus-cc')
+const ccTotal = document.querySelector('#qty-cc')
 
-// Event listener for clicks on the "+" button for Gingerbread cookies
+const sugarPlusBtn = document.querySelector('#add-sugar')
+const sugarMinusBtn = document.querySelector('#minus-sugar')
+const sugarTotal = document.querySelector('#qty-sugar')
+
+const total = document.querySelector('#qty-total')
+
+// Event Listeners
+
+//GB
+
 gbPlusBtn.addEventListener('click', function() {
-// HINT: You can delete this console.log after you no longer need it!
-console.log('Gingerbread + button was clicked!')
-
-// TODO: Write the code to be run when the "+" button for "Gingerbread" is clicked
+    gb++;
+    gbTotal.textContent=gb;
+    total.textContent=gb+cc+sugar;
+})
+gbMinusBtn.addEventListener('click', function() {
+    if (gb > 0)
+    gb--;
+    gbTotal.textContent=gb;
+    total.textContent=gb+cc+sugar;
 })
 
-// TODO: Hook up event listeners for the rest of the buttons
+//CC
+
+ccPlusBtn.addEventListener('click', function() {
+    cc++;
+    ccTotal.textContent=cc;
+    total.textContent=gb+cc+sugar;
+})
+ccMinusBtn.addEventListener('click', function() {
+    if (cc > 0)
+    cc--;
+    ccTotal.textContent=cc;
+    total.textContent=gb+cc+sugar;
+})
+
+//Sugar
+
+sugarPlusBtn.addEventListener('click', function() {
+    sugar++;
+    sugarTotal.textContent=sugar;
+    total.textContent=gb+cc+sugar;
+})
+sugarMinusBtn.addEventListener('click', function() {
+    if (sugar > 0)
+    sugar--;
+    sugarTotal.textContent=sugar;
+    total.textContent=gb+cc+sugar;
+})
+
+//Text Cred
+credit.textContent = `Created by ${yourName}`
